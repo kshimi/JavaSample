@@ -5,6 +5,31 @@ public class Car {
 	private double tankCapacity;
 	private double gas = 0.0;
 
+	// 行き先を指定して車を走らせます。
+	double run(int destination) {
+		double distance ;
+		switch (destination) {
+		case 0:
+			System.out.println("東京駅まで走ります。");
+			distance = 35.5;
+			break;
+		case 1:
+			System.out.println("名古屋まで走ります。");
+			distance = 340.5;
+			break;
+		case 2:
+			System.out.println("広島まで走ります。");
+			distance = 800.0;
+			break;
+		default:
+			System.out.println("行き先が分かりませんでした。");
+			distance = 0.0;
+			break;
+		}
+
+		return run(distance);
+	}
+
 	// 距離を指定して車を走らせます
 	double run(double distance) {
 		double consumeGas = distance * 0.1;
