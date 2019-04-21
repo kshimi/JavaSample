@@ -7,10 +7,12 @@ public class Sample2 {
 		p1.refuel(50);
 		p1.show();
 
-		p1.patrolRun(50);
+		p1.run(50.0);
 
 		p1.setSiren(true);
-		p1.patrolRun(20);
+		p1.run(20.0);
+
+		p1.show();
 	}
 
 }
