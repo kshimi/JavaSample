@@ -3,7 +3,12 @@ package carSample;
 public class Car {
 	private int num;
 	private double tankCapacity;
-	private double gas = 0.0;
+	private double gas;
+
+	public Car() {
+		gas = 0.0;
+		System.out.println("お車の用意ができました。");
+	}
 
 	// 行き先を指定して車を走らせます。
 	double run(int destination) {
