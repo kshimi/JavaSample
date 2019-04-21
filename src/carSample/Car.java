@@ -1,6 +1,8 @@
 package carSample;
 
 public class Car {
+	private static int numCars = 0;
+
 	private int num;
 	private double tankCapacity;
 	private double gas;
@@ -17,29 +19,13 @@ public class Car {
 		this.tankCapacity = tankCapacity;
 
 		System.out.println("お車の用意ができました。");
+
+		numCars++;
 	}
 
 	// 行き先を指定して車を走らせます。
 	double run(int destination) {
-		double distance ;
-		switch (destination) {
-		case 0:
-			System.out.println("東京駅まで走ります。");
-			distance = 35.5;
-			break;
-		case 1:
-			System.out.println("名古屋まで走ります。");
-			distance = 340.5;
-			break;
-		case 2:
-			System.out.println("広島まで走ります。");
-			distance = 800.0;
-			break;
-		default:
-			System.out.println("行き先が分かりませんでした。");
-			distance = 0.0;
-			break;
-		}
+		double distance = cityDistance(destination);
 
 		return run(distance);
 	}
@@ -66,6 +52,8 @@ public class Car {
 		System.out.println("車のナンバーは" + num + "です。");
 		System.out.println("車のタンク容量は" + tankCapacity + "l です。");
 		System.out.println("ガソリン量は" + gas + "です。");
+
+		System.out.println("車は全部で" + numCars + "台あります。");
 	}
 
 	// ガソリンの残量をチェックしてガソリンの量を計算します。
@@ -80,5 +68,23 @@ public class Car {
 
 		gas += amount;
 		return true;
+	}
+
+	// 行き先番号ごとの走行距離を求めます。
+	public static double cityDistance(int destination) {
+		switch (destination) {
+		case 0:
+			System.out.println("東京駅まで走ります。");
+			return 35.5;
+		case 1:
+			System.out.println("名古屋まで走ります。");
+			return 340.5;
+		case 2:
+			System.out.println("広島まで走ります。");
+			return 800.0;
+		default:
+			System.out.println("行き先が分かりませんでした。");
+			return 0.0;
+		}
 	}
 }

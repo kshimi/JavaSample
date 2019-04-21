@@ -22,5 +22,9 @@ public class Sample1 {
 		// ナンバー、タンク容量は指定しないで車を準備します。
 		Car car2 = new Car();
 		car2.show();
+
+		// 広島までの走行距離を確認します。
+		double toHiroshima = Car.cityDistance(2);
+		System.out.println("広島までの距離は " + toHiroshima + "km です。");
 	}
 }
