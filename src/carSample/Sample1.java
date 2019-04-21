@@ -7,33 +7,33 @@ import java.io.InputStreamReader;
 public class Sample1 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		// 車を4台分用意します。
-		Car cars[] = {
+		Vehicle vehicles[] = {
 				new Car(1, 50.0),
-				new Car(2, 25.0),
-				new Car(3, 70.5),
-				new Car(4, 65.3)
+				new Bycycle(2),
+				new Bycycle(3),
+				new PatrolCar()
 		};
 
-		System.out.println("0～" + (cars.length - 1)
+		System.out.println("0～" + (vehicles.length - 1)
 				+ "のうち、何号車を走らせますか？");
 
 		// 走らせる車を選ぶ
 		BufferedReader br =
 				new BufferedReader(new InputStreamReader(System.in));
-		int carNum = Integer.parseInt(br.readLine());
-		if (carNum < 0 || carNum > cars.length) {
+		int vehicleNum = Integer.parseInt(br.readLine());
+		if (vehicleNum < 0 || vehicleNum > vehicles.length) {
 			System.out.println("申し訳ございません、そのお車は準備致しておりません。");
 		} else {
-			driveCar(cars[carNum]);
+			driveVehicle(vehicles[vehicleNum]);
 		}
 	}
 
-	private static void driveCar(Car c) throws NumberFormatException, IOException {
+	private static void driveVehicle(Vehicle v) throws NumberFormatException, IOException {
 		BufferedReader br =
 				new BufferedReader(new InputStreamReader(System.in));
 
 		while (true) {
-			c.show();
+			v.show();
 			System.out.println("  0:東京まで走ります 1:名古屋まで走ります 2:広島まで走ります");
 			System.out.println("  10以上:入力した分だけ給油します");
 			System.out.println("  マイナス:走行を中止します");
@@ -43,9 +43,11 @@ public class Sample1 {
 			if (action < 0) {
 				break;
 			} else if (action < 10) {
-				c.run(action);
+				System.out.println(v.run(action) + " 時間かかりました。");
 			} else {
-				c.refuel(action);
+				if (v instanceof Car) {
+					((Car)v).refuel(action);
+				}
 			}
 		}
 	}
