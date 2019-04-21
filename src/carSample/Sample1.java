@@ -6,12 +6,13 @@ import java.io.InputStreamReader;
 
 public class Sample1 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		// 車を4台分用意します。
+		// 乗り物を5台分用意します。
 		Vehicle vehicles[] = {
 				new Car(1, 50.0),
 				new Bycycle(2),
 				new Bycycle(3),
-				new PatrolCar()
+				new PatrolCar(),
+				new Airplane()
 		};
 
 		System.out.println("0～" + (vehicles.length - 1)
@@ -45,8 +46,8 @@ public class Sample1 {
 			} else if (action < 10) {
 				System.out.println(v.run(action) + " 時間かかりました。");
 			} else {
-				if (v instanceof Car) {
-					((Car)v).refuel(action);
+				if (v instanceof IHasEngine) {
+					((IHasEngine)v).refuel(action);
 				}
 			}
 		}

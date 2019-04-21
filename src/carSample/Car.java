@@ -1,6 +1,6 @@
 package carSample;
 
-public class Car extends Vehicle {
+public class Car extends Vehicle implements IHasEngine {
 	private static int numCars = 0;
 
 	private int num;
@@ -37,7 +37,7 @@ public class Car extends Vehicle {
 	}
 
 	// 給油量を指定して給油します。
-	void refuel(double amount) {
+	public void refuel(double amount) {
 		if (addGas(amount)) {
 			System.out.println(amount + "l 給油しました。");
 		}
