@@ -7,5 +7,9 @@ public class Sample1 {
 		car1.gas = 40.2;
 
 		car1.show();
+
+		car1.run(5.7);
+		car1.refuel(5.0);
+		car1.show();
 	}
 }
