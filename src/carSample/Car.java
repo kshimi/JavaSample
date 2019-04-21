@@ -5,8 +5,17 @@ public class Car {
 	private double tankCapacity;
 	private double gas;
 
+	// ナンバーとタンク容量が指定されないとき、ナンバー0、タンク50Lにします。
 	public Car() {
-		gas = 0.0;
+		this(0, 50.0);
+	}
+
+	// 車のナンバーとタンク容量を設定します。
+	public Car(int num, double tankCapacity) {
+		this.gas = 0.0;
+		this.num = num;
+		this.tankCapacity = tankCapacity;
+
 		System.out.println("お車の用意ができました。");
 	}
 
@@ -50,12 +59,6 @@ public class Car {
 		if (addGas(amount)) {
 			System.out.println(amount + "l 給油しました。");
 		}
-	}
-
-	// 車のナンバーとタンク容量を設定します。
-	void makeCar(int num, double tankCapacity) {
-		this.num = num;
-		this.tankCapacity = tankCapacity;
 	}
 
 	// 車の状態を表示します。

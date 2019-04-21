@@ -2,8 +2,8 @@ package carSample;
 
 public class Sample1 {
 	public static void main(String[] args) {
-		Car car1 = new Car();
-		car1.makeCar(1234, 42.5);
+		// 車のナンバー、タンク容量を指定して準備します。
+		Car car1 = new Car(1234, 45.8);
 		car1.refuel(40.5);
 		car1.show();
 
@@ -19,5 +19,8 @@ public class Sample1 {
 		// 行き先を指定して走ります。(引数が int)
 		car1.run(1);
 
+		// ナンバー、タンク容量は指定しないで車を準備します。
+		Car car2 = new Car();
+		car2.show();
 	}
 }
