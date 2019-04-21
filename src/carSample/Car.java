@@ -4,9 +4,11 @@ public class Car {
 	int num;
 	double gas;
 
-	void run(double distance) {
+	double run(double distance) {
 		gas -= (distance * 0.1);
 		System.out.println(distance + "km 走りました。");
+
+		return gas;
 	}
 
 	void refuel(double amount) {
